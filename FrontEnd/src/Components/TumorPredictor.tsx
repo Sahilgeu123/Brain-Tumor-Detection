@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 function TumorPredictor() {
   const [result, setResult] = useState("");
 
-  const handleUpload = async (event) => {
-    const file = event.target.files[0];
+  const handleUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (!file) return;
+
     const formData = new FormData();
     formData.append("file", file);
 

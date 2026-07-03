@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import DragDrop from "./DragDrop";
 import skinConfusion from "../assets/SkinConfusion.png";
 
