@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+/* Custom utilities */
+@layer utilities {
+  @keyframes spinY {
+    0% { transform: rotateY(0deg); }
+    100% { transform: rotateY(360deg); }
+  }
+  .animate-spinY {
+    animation: spinY 5s linear infinite;
+  }
+}
+@layer utilities {
+  @keyframes spinYspin {
+    0% {
+      transform: rotateY(0deg) rotate(0deg);
+    }
+    100% {
+      transform: rotateY(360deg) rotate(360deg);
+    }
+  }
+
+  .animate-spinYspin {
+    animation: spinYspin 10s linear infinite;
+  }
+}
+
+/* 2D rotation */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+/* Diagonal movement */
+@keyframes moveDiagonal {
+  from { transform: translate(100vh, 100vh); }
+  to   { transform: translate(-100px,-100px); }
+}
+
+/* Vertical movement (bottom → top) */
+@keyframes moveImage {
+  from { transform: translateY(100vh); }   /* start below screen */
+  to   { transform: translateY(-120%); }   /* exit above screen */
+}
+@keyframes moveDiagonalRotate {
+  from {
+    transform: translate(0, 100vh) rotate(0deg);
+  }
+  to {
+    transform: translate(100vw, -100%) rotate(360deg);
+  }
+}
+
+.video-wrapper {
+  animation: moveDiagonal 12s linear infinite;
+  z-index: -2; /* slower diagonal */
+}
+
+
+/* Background video styling */
+.bg-video {
+  position:absolute;
+  object-fit: cover;        /* fill screen */
+  z-index: -1;              /* behind everything */
+  border: none;
+  outline: none;
+  pointer-events: none;     /* no hover/click interaction */
+  user-select: none;        /* no selection */
+}
+
+.img-animation {
+  animation: spin 70s linear infinite;
+}
+@keyframes moveRobo {
+            
+  0%  { transform: translateY(0px); } 
+  70%  { transform: translate(900px);}
+  80%{transform: translate(950px)};
+  100% { transform: translate(950px, 1800px); }    /* move further down */
+}
+
+.moveRobot{
+  animation: moveRobo 3s linear 1;
+}
